@@ -9,8 +9,8 @@ import Validacao from "./Validator";
 
 const useStyles = makeStyles((theme) => ({
     margin: {
-        margin: theme.spacing(3),
-        width: 350,
+        margin: theme.spacing(1),
+        width: 400,
     },
     button: {
         margin: theme.spacing(1),
@@ -58,8 +58,7 @@ export default function StepTwo() {
     const classes = useStyles();
 
     return(
-
-
+        <div>
                 <Grid className="Informações Profissionais"
                       container
                       direction="column"
@@ -67,7 +66,7 @@ export default function StepTwo() {
                       alignItems="stretch"
                 >
                     <form noValidate autoComplete="off">
-                    <div>
+
                     <TextField
                         label="Resumo Profissional"
                         id="standard-multiline-static"
@@ -89,8 +88,6 @@ export default function StepTwo() {
                         value={historico}
                         onChange={e => setHistorico(e.target.value)}
                     />
-                    </div>
-
 
                     <div>
                     <Link to='/curriculo1' className={classes.link}>
@@ -102,5 +99,6 @@ export default function StepTwo() {
 
                     </form>
                 </Grid>
+        </div>
     );
 }

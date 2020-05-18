@@ -12,7 +12,7 @@ import {Link} from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
     margin: {
         margin: theme.spacing(1),
-        width: 350,
+        width: 400,
     },
     button: {
         margin: theme.spacing(1),
