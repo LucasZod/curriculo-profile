@@ -18,7 +18,10 @@ export default function Home(){
             <Link className={classes.button} to='/curriculo1'>
                 <Button color="primary" variant="outlined">Curriculo com Foto</Button>
             </Link>
+
+            <Link className={classes.button} to='/'>
             <Button color="primary" variant="outlined">Curriculo sem Foto</Button>
+            </Link>
         </div>
     );
 }

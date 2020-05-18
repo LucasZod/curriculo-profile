@@ -10,7 +10,7 @@ import Validacao from "./Validator";
 const useStyles = makeStyles((theme) => ({
     margin: {
         margin: theme.spacing(3),
-        width: 500,
+        width: 430,
     },
     button: {
         margin: theme.spacing(1),
@@ -59,7 +59,7 @@ export default function StepTwo() {
 
     return(
 
-        <div>
+
                 <Grid className="Informações Profissionais"
                       container
                       direction="column"
@@ -67,6 +67,7 @@ export default function StepTwo() {
                       alignItems="stretch"
                 >
                     <form noValidate autoComplete="off">
+                    <div>
                     <TextField
                         label="Resumo Profissional"
                         id="standard-multiline-static"
@@ -78,6 +79,7 @@ export default function StepTwo() {
 
                     />
 
+
                     <TextField
                         label="Histórico Profissional"
                         id="standard-multiline-static"
@@ -87,6 +89,7 @@ export default function StepTwo() {
                         value={historico}
                         onChange={e => setHistorico(e.target.value)}
                     />
+                    </div>
 
 
                     <div>
@@ -95,12 +98,9 @@ export default function StepTwo() {
                     </Link>
 
                     <Button onClick={addStorage2} className={classes.button} variant="contained" color="primary">PRÓXIMO</Button>
-
                     </div>
 
                     </form>
-
                 </Grid>
-        </div>
     );
 }
