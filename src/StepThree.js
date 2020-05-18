@@ -43,9 +43,11 @@ export default function StepThree() {
         {
             localStorage.setItem('@curriculo-profile/inf', inf);
             localStorage.setItem('@curriculo-profile/comp', comp);
-
             Get();
 
+            document.location.reload();
+
+            window.location.pathname = "/curriculo1";
 
         }else{
             const { inf, comp } = validacao;
@@ -102,9 +104,8 @@ export default function StepThree() {
                 <Button className={classes.button} variant="contained" color="primary">ANTERIOR</Button>
                         </Link>
 
-                        <Link to='/curriculo1' className={classes.link}>
                 <Button className={classes.button} onClick={gerarCurriculo} variant="contained" color="primary">GERAR CURRÍCULO</Button>
-                        </Link>
+
                     </div>
             </form>
                 </div>

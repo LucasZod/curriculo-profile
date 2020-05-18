@@ -22,6 +22,5 @@ export default async function Get() {
     await GCCF(Data);
 
     localStorage.clear();
-    document.location.reload();
 
 }
