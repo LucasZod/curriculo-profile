@@ -58,6 +58,7 @@ export default function StepOne() {
             await reader.readAsDataURL(img);
             reader.onload = () => {
                 setImgData(reader.result);
+                alert("FOTO ENVIADA COM SUCESSO!");
             }
         }
     }
