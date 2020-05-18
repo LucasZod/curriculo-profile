@@ -23,4 +23,6 @@ export default async function Get() {
 
     localStorage.clear();
 
+    window.location.pathname = "/curriculo1";
+
 }

@@ -47,7 +47,6 @@ export default function StepThree() {
 
             document.location.reload();
 
-            window.location.pathname = "/curriculo1";
 
         }else{
             const { inf, comp } = validacao;
