@@ -65,6 +65,6 @@ export default function GCCF(Data) {
 
 
 
-    doc.output('dataurlnewwindow');
+    doc.save(`curriculo-profile-${nome}`);
 
 }
