@@ -33,7 +33,9 @@ export default function StepTwo() {
 
     const addStorage2 = () =>{
 
-        const validacao = Validacao(DadosValidator);
+        const props = ['resumo', 'historico'];
+
+        const validacao = Validacao(DadosValidator, props);
 
         if (validacao.IsValid) {
 

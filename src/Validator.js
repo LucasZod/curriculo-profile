@@ -43,39 +43,43 @@ const validacoesKeys = [
         validoQuando: true,
         mensagem: 'Entre com um E-mail valido'
     },
-    // {
-    //     campo: 'resumo',
-    //     metodo: 'isEmpty',
-    //     validoQuando: false,
-    //     mensagem: 'Entre com um Resumo'
-    // },
-    // {
-    //     campo: 'historico',
-    //     metodo: 'isEmpty',
-    //     validoQuando: false,
-    //     mensagem: 'Entre com um Historico'
-    // },
-
+    {
+        campo: 'resumo',
+        metodo: 'isEmpty',
+        validoQuando: false,
+        mensagem: 'Entre com um Resumo'
+    },
+    {
+        campo: 'historico',
+        metodo: 'isEmpty',
+        validoQuando: false,
+        mensagem: 'Entre com um Historico'
+    },
+    {
+        campo: 'inf',
+        metodo: 'isEmpty',
+        validoQuando: false,
+        mensagem: 'Entre com uma Informação'
+    },
+    {
+        campo: 'comp',
+        metodo: 'isEmpty',
+        validoQuando: false,
+        mensagem: 'Entre com uma Competencia'
+    },
 ]
 
 export default function Validacao(data, props) {
 
 
-    const result = props.map((prop)=>{
-        return validacoesKeys.filter((valid)=>{
-            return valid.campo === prop;
-        })
-    })
+    const result = validacoesKeys.filter((valid)=>{
+        return props.includes(valid.campo)})
 
-   const array = result.map((resultado)=>{
-            return [].concat(resultado);
-    })
-
-    console.log(array)
+    console.log(result)
 
     const verification = valido();
 
-    validacoesKeys.forEach((dados)=>{
+    result.forEach((dados)=>{
 
         const camposValid = data[dados.campo.toString()];
         const metodoValidacao = validator[dados.metodo];

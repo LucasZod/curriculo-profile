@@ -1,5 +1,6 @@
 import React from "react";
 import Get from "./GetItems";
+import Validacao from "./Validator";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from "@material-ui/core/Button";
@@ -27,11 +28,36 @@ export default function StepThree() {
 
     const [inf, setInf] = useState('Formação, Cursos, Etc..');
     const [comp, setComp] = useState(loremIpsum);
-    localStorage.setItem('@curriculo-profile/inf', inf);
-    localStorage.setItem('@curriculo-profile/comp', comp);
+
+
+    const DadosValidator = {
+        inf, comp
+    }
 
     const gerarCurriculo = () =>{
-        Get();
+
+        const props = ['inf', 'comp'];
+
+        const validacao = Validacao(DadosValidator, props);
+
+        if (validacao.IsValid)
+        {
+            localStorage.setItem('@curriculo-profile/inf', inf);
+            localStorage.setItem('@curriculo-profile/comp', comp);
+
+            Get();
+
+
+        }else{
+            const { inf, comp } = validacao;
+            const campos = [ inf, comp ];
+            campos.forEach((campos)=>{
+                if (campos.isInvalid){
+                    alert(campos.menssagem)
+                }
+            })
+        }
+
     }
 
 
