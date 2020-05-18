@@ -58,6 +58,7 @@ const validacoesKeys = [
     {
         campo: 'inf',
         metodo: 'isEmpty',
+        char: 300,
         validoQuando: false,
         mensagem: 'Entre com uma Informação'
     },

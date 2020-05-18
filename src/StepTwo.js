@@ -10,7 +10,7 @@ import Validacao from "./Validator";
 const useStyles = makeStyles((theme) => ({
     margin: {
         margin: theme.spacing(3),
-        width: 430,
+        width: 350,
     },
     button: {
         margin: theme.spacing(1),

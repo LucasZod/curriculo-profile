@@ -6,8 +6,10 @@ export default function Home(){
 
     const useStyles = makeStyles((theme)=>({
         button:{
-            textDecoration: "none",
             margin: 10,
+        },
+        link:{
+            textDecoration: "none",
         },
     }));
 
@@ -15,13 +17,17 @@ export default function Home(){
 
     return(
         <div>
-            <Link className={classes.button} to='/curriculo1'>
+            <div className={classes.button}>
+            <Link className={classes.link} to='/curriculo1'>
                 <Button color="primary" variant="outlined">Curriculo com Foto</Button>
             </Link>
+            </div>
 
-            <Link className={classes.button} to='/'>
+            <div className={classes.button}>
+            <Link className={classes.link} to='/'>
             <Button color="primary" variant="outlined">Curriculo sem Foto</Button>
             </Link>
+            </div>
         </div>
     );
 }
