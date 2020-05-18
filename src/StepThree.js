@@ -24,10 +24,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function StepThree() {
 
-    const loremIpsum = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
 
-    const [inf, setInf] = useState('Formação, Cursos, Etc..');
-    const [comp, setComp] = useState(loremIpsum);
+    const [inf, setInf] = useState(localStorage.getItem('@curriculo-profile/inf') || '');
+    const [comp, setComp] = useState(localStorage.getItem('@curriculo-profile/comp') || '');
 
 
     const DadosValidator = {
@@ -99,10 +98,13 @@ export default function StepThree() {
                     </div>
 
                     <div>
-                <Link to="/curriculo2" className={classes.link}>
+                        <Link to="/curriculo2" className={classes.link}>
                 <Button className={classes.button} variant="contained" color="primary">ANTERIOR</Button>
-                </Link>
+                        </Link>
+
+                        <Link to='/curriculo1'>
                 <Button className={classes.button} onClick={gerarCurriculo} variant="contained" color="primary">GERAR CURRÍCULO</Button>
+                        </Link>
                     </div>
             </form>
                 </div>

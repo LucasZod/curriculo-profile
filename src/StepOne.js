@@ -35,12 +35,12 @@ export default function StepOne() {
 
     const [img, setImg] = useState();
     const [imgData, setImgData] = useState('');
-    const [nome, setNome] = useState('LUCAS MORENO DUARTE');
-    const [end, setEnd] = useState('Rua das Caravelas 163 Vila Santa Helena');
-    const [cidade, setCidade] = useState('Goiânia');
-    const [estado, setEstado] = useState('GO');
-    const [celular, setCelular] = useState('9 81638156');
-    const [email, setEmail] = useState('lucasmorenozod@gmail.com');
+    const [nome, setNome] = useState(localStorage.getItem('@curriculo-profile/nome') || '');
+    const [end, setEnd] = useState(localStorage.getItem('@curriculo-profile/end') || '');
+    const [cidade, setCidade] = useState(localStorage.getItem('@curriculo-profile/cidade') || '');
+    const [estado, setEstado] = useState(localStorage.getItem('@curriculo-profile/estado') || '');
+    const [celular, setCelular] = useState(localStorage.getItem('@curriculo-profile/celular') || '');
+    const [email, setEmail] = useState(localStorage.getItem('@curriculo-profile/email') || '');
 
 
     const filesSelectedHandle = async event =>{
@@ -193,7 +193,7 @@ export default function StepOne() {
 
                     <Button className={classes.button} onClick={addStorage1} variant="contained" color="primary">PRÓXIMO</Button>
 
-                <Button onClick={()=>{localStorage.clear()}}>ZERAR STORAGE</Button>
+                {/*<Button onClick={()=>{localStorage.clear()}}>ZERAR STORAGE</Button>*/}
 
 
 

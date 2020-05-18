@@ -76,8 +76,6 @@ export default function Validacao(data, props) {
     const result = validacoesKeys.filter((valid)=>{
         return props.includes(valid.campo)})
 
-    console.log(result)
-
     const verification = valido();
 
     result.forEach((dados)=>{
