@@ -12,7 +12,7 @@ import {Link} from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
     margin: {
         margin: theme.spacing(1),
-        width: 400,
+        width: 350,
     },
     button: {
         margin: theme.spacing(1),
@@ -72,8 +72,9 @@ export default function StepThree() {
                   justify="space-between"
                   alignItems="stretch"
             >
+                <div>
             <form noValidate autoComplete="off">
-
+                    <div>
                     <TextField
                         label="Informações Pessoais"
                         id="standard-multiline-static"
@@ -95,6 +96,7 @@ export default function StepThree() {
                         onChange={e => setComp(e.target.value)}
                         fullWidth
                     />
+                    </div>
 
                     <div>
                 <Link to="/curriculo2" className={classes.link}>
@@ -103,6 +105,7 @@ export default function StepThree() {
                 <Button className={classes.button} onClick={gerarCurriculo} variant="contained" color="primary">GERAR CURRÍCULO</Button>
                     </div>
             </form>
+                </div>
 
             </Grid>
         </div>
