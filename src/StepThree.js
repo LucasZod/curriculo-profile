@@ -102,7 +102,7 @@ export default function StepThree() {
                 <Button className={classes.button} variant="contained" color="primary">ANTERIOR</Button>
                         </Link>
 
-                        <Link to='/curriculo1'>
+                        <Link to='/curriculo1' className={classes.link}>
                 <Button className={classes.button} onClick={gerarCurriculo} variant="contained" color="primary">GERAR CURRÍCULO</Button>
                         </Link>
                     </div>
