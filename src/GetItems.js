@@ -19,10 +19,5 @@ export default async function Get() {
         resumo,historico,inf,comp
     }
 
-    await GCCF(Data);
-
-    localStorage.clear();
-
-    window.location.pathname = "/curriculo1";
-
+        await GCCF(Data);
 }

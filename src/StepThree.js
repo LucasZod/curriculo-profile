@@ -19,14 +19,45 @@ const useStyles = makeStyles((theme) => ({
     },
     link: {
         textDecoration: "none",
+    },
+    label: {
+        fontSize: 14,
+        color: "darkslateblue"
     }
 }));
 
 export default function StepThree() {
 
-
     const [inf, setInf] = useState(localStorage.getItem('@curriculo-profile/inf') || '');
     const [comp, setComp] = useState(localStorage.getItem('@curriculo-profile/comp') || '');
+
+    function impedirNovaLinha(e) {
+        const element = e.target;
+        const dados = element.value;
+        const name = element.name;
+        var linhas = dados.split('\n');
+        console.log(dados.length)
+
+        if (name === 'inf'){
+            if (linhas.length > 5){
+                alert('Máximo de linhas de informações atingido!')
+                e.preventDefault();
+            }
+        }
+        if (name === 'comp'){
+            if (linhas.length > 14){
+                alert('Máximo de linhas de competencia atingido!')
+                e.preventDefault();
+            }
+        }
+    }
+
+    if (inf.length > 350){
+        alert('A quantidade de caracteres para Informações Pessoais deve ser menor que 350!');
+        setInf(inf.substring(-1, 350));
+    }
+
+
 
 
     const DadosValidator = {
@@ -44,8 +75,6 @@ export default function StepThree() {
             localStorage.setItem('@curriculo-profile/inf', inf);
             localStorage.setItem('@curriculo-profile/comp', comp);
             Get();
-
-            document.location.reload();
 
 
         }else{
@@ -75,18 +104,28 @@ export default function StepThree() {
                 <div>
             <form noValidate autoComplete="off">
                     <div>
+                        <label className={classes.label}>Linhas Restantes: {6 - inf.split('\n').length}
+                        </label>
+                        <div>
                     <TextField
+                        name="inf"
                         label="Informações Pessoais"
                         id="standard-multiline-static"
-                        multiline
-                        rows="9"
                         className={classes.margin}
                         value={inf}
                         onChange={e => setInf(e.target.value)}
                         fullWidth
-                        
+                        multiline
+                        rows="6"
+                        onKeyPress={impedirNovaLinha}
                     />
+                        </div>
+
+                        <label className={classes.label}>Linhas Restantes: {15 - comp.split('\n').length}
+                        </label>
+                        <div>
                     <TextField
+                        name="comp"
                         label="Competências"
                         id="standard-multiline-static"
                         multiline
@@ -95,7 +134,10 @@ export default function StepThree() {
                         value={comp}
                         onChange={e => setComp(e.target.value)}
                         fullWidth
+                        onKeyPress={impedirNovaLinha}
                     />
+                        </div>
+
                     </div>
 
                     <div>
@@ -104,6 +146,8 @@ export default function StepThree() {
                         </Link>
 
                 <Button className={classes.button} onClick={gerarCurriculo} variant="contained" color="primary">GERAR CURRÍCULO</Button>
+
+
 
                     </div>
             </form>

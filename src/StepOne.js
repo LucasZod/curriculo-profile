@@ -34,7 +34,7 @@ export default function StepOne() {
 
 
     const [img, setImg] = useState();
-    const [imgData, setImgData] = useState('');
+    const [imgData, setImgData] = useState(localStorage.getItem('@curriculo-profile/imgdata') || '');
     const [nome, setNome] = useState(localStorage.getItem('@curriculo-profile/nome') || '');
     const [end, setEnd] = useState(localStorage.getItem('@curriculo-profile/end') || '');
     const [cidade, setCidade] = useState(localStorage.getItem('@curriculo-profile/cidade') || '');

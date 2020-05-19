@@ -7,7 +7,7 @@ export default function GCCF(Data) {
 
     const doc = new jsPDF();
 
-    doc.addImage(imgData, 'JPEG', 3, 10, 37, 40)
+    doc.addImage(imgData, 'JPEG', 3, 10, 37, 40);
 
     doc.setFontSize(20);
     doc.text(45, 17, `${nome}`);
@@ -65,6 +65,6 @@ export default function GCCF(Data) {
 
 
 
-    doc.save(`curriculo-profile-${nome}`);
+    doc.output('dataurlnewwindow');
 
 }
