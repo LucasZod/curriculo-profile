@@ -4,6 +4,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 import { useState } from 'react';
 import Validacao from "./Validator";
 
@@ -32,7 +37,27 @@ const useStyles = makeStyles((theme) => ({
 
 export default function StepOne() {
 
+    //SNACKBAR
+    function Alert(props) {
+        return <MuiAlert elevation={6} variant="filled" {...props} />;
+    }
+    const [open, setOpen] = React.useState(false);
 
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
+    //SNACKBAR
+
+    const [snack, setSnack] = useState('');
+    const [keysnack, setkey] = useState(true);
     const [img, setImg] = useState();
     const [imgData, setImgData] = useState(localStorage.getItem('@curriculo-profile/imgdata') || '');
     const [nome, setNome] = useState(localStorage.getItem('@curriculo-profile/nome') || '');
@@ -43,22 +68,35 @@ export default function StepOne() {
     const [email, setEmail] = useState(localStorage.getItem('@curriculo-profile/email') || '');
 
 
+    function KeySnack() {
+            if (keysnack){
+                return 'success'
+            }else{
+                return 'error'
+            }
+        }
+
     const filesSelectedHandle = async event =>{
         await setImg(event.target.files[0]);
     }
+    
 
     const fileUploadHandler = async event =>{
         event.preventDefault();
         if(!img)
         {
-            alert("Você precisa CARREGAR uma foto");
+            setSnack("Você precisa CARREGAR uma foto");
+            setkey(false);
+            handleClick();
             return;
         }else {
             const reader = new FileReader();
             await reader.readAsDataURL(img);
             reader.onload = () => {
                 setImgData(reader.result);
-                alert("FOTO ENVIADA COM SUCESSO!");
+                setSnack('Foto enviada com sucesso!');
+                setkey(true);
+                handleClick();
             }
         }
     }
@@ -91,7 +129,9 @@ export default function StepOne() {
             const campos = [imgData, nome, end, cidade, estado, celular, email];
             campos.forEach((campo) =>{
                 if (campo.isInvalid){
-                    alert(campo.menssagem);
+                    setSnack(campo.menssagem);
+                    setkey(false);
+                    handleClick()
                 }
             })
         }
@@ -137,7 +177,9 @@ export default function StepOne() {
                     value={nome}
                     onChange={e => setNome(e.target.value)}
                     />
+                    </div>
 
+                    <div>
                     <TextField
                     id="standard-basic"
                     label="Endereço"
@@ -157,27 +199,38 @@ export default function StepOne() {
                     value={cidade}
                     onChange={e => setCidade(e.target.value)}
                     />
+                    </div>
 
-                    <TextField
-                    id="standard-basic"
-                    label="Estado"
-                    name="estado"
-                    className={classes.margin}
-                    value={estado}
-                    onChange={e => setEstado(e.target.value)}
-                    />
+                    <div>
+                    <InputLabel  id="demo-simple-select-label">Estado</InputLabel>
+                        <Select
+                            className={classes.margin}
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={estado}
+                            onChange={e => setEstado(e.target.value)}
+                        >
+                            <MenuItem value="GO">GO</MenuItem>
+                            <MenuItem value="SP">SP</MenuItem>
+                            <MenuItem value="DF">DF</MenuItem>
+                            <MenuItem value="MG">MG</MenuItem>
+                            <MenuItem value="RJ">RJ</MenuItem>
+                        </Select>
                     </div>
 
                     <div>
                     <TextField
                     id="standard-basic"
+                    placeholder="(DDD) 9 9999-9999"
                     label="Celular"
                     name="celular"
                     className={classes.margin}
                     value={celular}
                     onChange={e => setCelular(e.target.value)}
                     />
+                    </div>
 
+                    <div>
                     <TextField
                     id="standard-basic"
                     label="Email"
@@ -186,7 +239,6 @@ export default function StepOne() {
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     />
-
                     </div>
 
                 <Link to='/' className={classes.link}>
@@ -197,10 +249,20 @@ export default function StepOne() {
 
                 {/*<Button onClick={()=>{localStorage.clear()}}>ZERAR STORAGE</Button>*/}
 
-
-
             </form>
             </Grid>
+
+            {/*SNACKBAR*/}
+
+            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={KeySnack()}>
+                    {snack}
+                </Alert>
+            </Snackbar>
+
+            {/*SNACKBAR*/}
+
         </div>
+
     );
 }
