@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function StepTwo() {
 
-
     const [resumo, setResumo] = useState(localStorage.getItem('@curriculo-profile/resumo') || '');
     const [historico, setHistorico] = useState(localStorage.getItem('@curriculo-profile/historico') || '');
     

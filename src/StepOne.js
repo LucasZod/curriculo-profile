@@ -56,6 +56,7 @@ export default function StepOne() {
     };
     //SNACKBAR
 
+
     const [snack, setSnack] = useState('');
     const [keysnack, setkey] = useState(true);
     const [img, setImg] = useState();
@@ -169,7 +170,7 @@ export default function StepOne() {
                             Carregar Sua Foto
                         </Button>
                     </label>
-                <Button variant='outlined' onClick={fileUploadHandler}>Enviar</Button>
+                <Button variant='outlined' onClick={fileUploadHandler}>Enviar Foto</Button>
                 </div>
 
                     <div>
