@@ -41,9 +41,9 @@ export default function StepTwo() {
                 alert('Máximo de linhas de Resumo atingido!');
                 e.preventDefault();
             }
-            if (dados.length > 850){
-                alert('A quantidade de caracteres para Resumo deve ser menor que 850!');
-                setResumo(resumo.substring(-1, 850));
+            if (dados.length > 700){
+                alert('A quantidade de caracteres para Resumo deve ser menor que 700!');
+                setResumo(resumo.substring(-1, 700));
             }
         }
         if (name === 'historico'){
