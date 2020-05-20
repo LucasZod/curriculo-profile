@@ -21,8 +21,9 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: "none",
     },
     label: {
-        fontSize: 14,
-        color: "darkslateblue"
+        fontSize: 13,
+        color: "lightslategray",
+        fontFamily: "sans-serif",
     }
 }));
 
@@ -36,12 +37,15 @@ export default function StepThree() {
         const dados = element.value;
         const name = element.name;
         var linhas = dados.split('\n');
-        console.log(dados.length)
 
         if (name === 'inf'){
             if (linhas.length > 5){
                 alert('Máximo de linhas de informações atingido!')
                 e.preventDefault();
+            }
+            if (dados.length > 350){
+                alert('A quantidade de caracteres para Informações Pessoais deve ser menor que 350!');
+                setInf(inf.substring(-1, 350));
             }
         }
         if (name === 'comp'){
@@ -49,15 +53,12 @@ export default function StepThree() {
                 alert('Máximo de linhas de competencia atingido!')
                 e.preventDefault();
             }
+            if (dados.length > 1000){
+                alert('A quantidade de caracteres para Competências deve ser menor que 1000!');
+                setComp(comp.substring(-1, 1000));
+            }
         }
     }
-
-    if (inf.length > 350){
-        alert('A quantidade de caracteres para Informações Pessoais deve ser menor que 350!');
-        setInf(inf.substring(-1, 350));
-    }
-
-
 
 
     const DadosValidator = {

@@ -18,6 +18,11 @@ const useStyles = makeStyles((theme) => ({
     link: {
         textDecoration: "none",
     },
+    label: {
+        fontSize: 13,
+        color: "lightslategray",
+        fontFamily: "sans-serif",
+    },
 }));
 
 export default function StepTwo() {
@@ -25,6 +30,34 @@ export default function StepTwo() {
 
     const [resumo, setResumo] = useState(localStorage.getItem('@curriculo-profile/resumo') || '');
     const [historico, setHistorico] = useState(localStorage.getItem('@curriculo-profile/historico') || '');
+    
+    function impedirNovaLinha(e) {
+        const element = e.target;
+        const dados = element.value;
+        const name = element.name;
+        var linhas = dados.split('\n');
+
+        if (name === 'resumo'){
+            if (linhas.length > 14){
+                alert('Máximo de linhas de Resumo atingido!');
+                e.preventDefault();
+            }
+            if (dados.length > 850){
+                alert('A quantidade de caracteres para Resumo deve ser menor que 850!');
+                setResumo(resumo.substring(-1, 850));
+            }
+        }
+        if (name === 'historico'){
+            if (linhas.length > 14){
+                alert('Máximo de linhas de historico atingido!');
+                e.preventDefault();
+            }
+            if (dados.length > 1000){
+                alert('A quantidade de caracteres para Historico deve ser menor que 1000!');
+                setHistorico(historico.substring(-1, 1000));
+            }
+        }
+    }
 
     const DadosValidator = {
         resumo, historico
@@ -68,7 +101,11 @@ export default function StepTwo() {
                     <form noValidate autoComplete="off">
 
                     <div>
+
+                        <label className={classes.label}>Linhas Restantes: {15 - resumo.split('\n').length} </label>
+                        <div>
                     <TextField
+                        name="resumo"
                         label="Resumo Profissional"
                         id="standard-multiline-static"
                         multiline
@@ -76,11 +113,14 @@ export default function StepTwo() {
                         className={classes.margin}
                         value={resumo}
                         onChange={e => setResumo(e.target.value)}
-
+                        onKeyPress={impedirNovaLinha}
                     />
+                        </div>
 
-
+                        <label className={classes.label}>Linhas Restantes: {15 - historico.split('\n').length} </label>
+                        <div>
                     <TextField
+                        name="historico"
                         label="Histórico Profissional"
                         id="standard-multiline-static"
                         multiline
@@ -88,7 +128,10 @@ export default function StepTwo() {
                         className={classes.margin}
                         value={historico}
                         onChange={e => setHistorico(e.target.value)}
+                        onKeyPress={impedirNovaLinha}
                     />
+                        </div>
+
                     </div>
 
                     <div>

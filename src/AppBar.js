@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
     link: {
         textDecoration: "none",
+        color: "white",
     },
 
 }));
@@ -26,15 +27,15 @@ export default function Header() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Link className={classes.link} to='/'>
             <AppBar position="static">
                 <Toolbar>
-                    <Typography variant="h6" className={classes.title}>
+                    <Typography variant="h5" className={classes.title}>
+                        <Link className={classes.link} to='/'>
                         Currículo Profile
+                        </Link>
                     </Typography>
                 </Toolbar>
             </AppBar>
-            </Link>
         </div>
     );
 }

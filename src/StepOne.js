@@ -63,6 +63,7 @@ export default function StepOne() {
         }
     }
 
+
     const DadosValidator = {
         imgData, nome, end, cidade, estado, celular, email
     };
