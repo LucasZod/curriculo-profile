@@ -64,7 +64,7 @@ export default function GCCF(Data) {
     doc.text(46, 230, compe);
 
 
-
-    doc.output('dataurlnewwindow');
+    doc.save('newcurriculoprofile');
+    // doc.output('dataurlnewwindow');
 
 }
