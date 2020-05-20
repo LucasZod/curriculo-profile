@@ -67,6 +67,10 @@ export default function StepOne() {
     const [celular, setCelular] = useState(localStorage.getItem('@curriculo-profile/celular') || '');
     const [email, setEmail] = useState(localStorage.getItem('@curriculo-profile/email') || '');
 
+    function LimparDados() {
+        localStorage.clear();
+        window.location.reload();
+    }
 
     function KeySnack() {
             if (keysnack){
@@ -247,14 +251,14 @@ export default function StepOne() {
 
                     <Button className={classes.button} onClick={addStorage1} variant="contained" color="primary">PRÓXIMO</Button>
 
-                {/*<Button onClick={()=>{localStorage.clear()}}>ZERAR STORAGE</Button>*/}
+                <Button variant="outlined" onClick={()=>{LimparDados()}}>Limpar Seus Dados</Button>
 
             </form>
             </Grid>
 
             {/*SNACKBAR*/}
 
-            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity={KeySnack()}>
                     {snack}
                 </Alert>
