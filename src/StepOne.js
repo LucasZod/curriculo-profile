@@ -12,6 +12,7 @@ import MuiAlert from '@material-ui/lab/Alert';
 import { useState } from 'react';
 import Validacao from "./Validator";
 
+
 const useStyles = makeStyles((theme) => ({
     margin: {
         margin: theme.spacing(1),
@@ -37,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function StepOne() {
 
+
     //SNACKBAR
     function Alert(props) {
         return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -51,11 +53,10 @@ export default function StepOne() {
         if (reason === 'clickaway') {
             return;
         }
-
         setOpen(false);
     };
     //SNACKBAR
-
+    
 
     const [snack, setSnack] = useState('');
     const [keysnack, setkey] = useState(true);
@@ -127,6 +128,9 @@ export default function StepOne() {
             localStorage.setItem('@curriculo-profile/celular', celular);
             localStorage.setItem('@curriculo-profile/email', email);
 
+
+            localStorage.setItem('@curriculo-profile/page', true);
+
             window.location.pathname = "/curriculo2";
         }else
         {
@@ -146,7 +150,6 @@ export default function StepOne() {
     const classes = useStyles();
 
     return(
-
         <div>
             <Grid
                 className={classes.body}
@@ -155,7 +158,6 @@ export default function StepOne() {
                 justify="flex-start"
                 alignItems="center"
             >
-
 
             <form noValidate autoComplete="off">
                 <div>
@@ -258,13 +260,11 @@ export default function StepOne() {
             </Grid>
 
             {/*SNACKBAR*/}
-
             <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity={KeySnack()}>
                     {snack}
                 </Alert>
             </Snackbar>
-
             {/*SNACKBAR*/}
 
         </div>

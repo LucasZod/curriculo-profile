@@ -27,6 +27,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function StepTwo() {
 
+    const page = localStorage.getItem('@curriculo-profile/imgdata');
+    if (!page){
+        window.location.pathname = '/curriculo1';
+    }
+
     const [resumo, setResumo] = useState(localStorage.getItem('@curriculo-profile/resumo') || '');
     const [historico, setHistorico] = useState(localStorage.getItem('@curriculo-profile/historico') || '');
     

@@ -29,6 +29,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function StepThree() {
 
+    const page = localStorage.getItem('@curriculo-profile/resumo');
+    if (!page){
+        window.location.pathname = '/curriculo2';
+    }
+
     const [inf, setInf] = useState(localStorage.getItem('@curriculo-profile/inf') || '');
     const [comp, setComp] = useState(localStorage.getItem('@curriculo-profile/comp') || '');
 
