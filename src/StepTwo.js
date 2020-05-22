@@ -6,6 +6,8 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { useState } from 'react';
 import Validacao from "./Validator";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
 const useStyles = makeStyles((theme) => ({
     margin: {
@@ -32,8 +34,29 @@ export default function StepTwo() {
         window.location.pathname = '/curriculo1';
     }
 
+    //SNACKBAR
+    function Alert(props) {
+        return <MuiAlert elevation={6} variant="filled" {...props} />;
+    }
+    const [open, setOpen] = React.useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
+    //SNACKBAR
+
+    const [snack, setSnack] = useState('');
+    const [type, setType] = useState('');
     const [resumo, setResumo] = useState(localStorage.getItem('@curriculo-profile/resumo') || '');
     const [historico, setHistorico] = useState(localStorage.getItem('@curriculo-profile/historico') || '');
+
     
     function impedirNovaLinha(e) {
         const element = e.target;
@@ -43,21 +66,29 @@ export default function StepTwo() {
 
         if (name === 'resumo'){
             if (linhas.length > 14){
-                alert('Máximo de linhas de Resumo atingido!');
+                setSnack('Máximo de linhas de Resumo atingido!');
+                setType('info');
+                handleClick();
                 e.preventDefault();
             }
             if (dados.length > 700){
-                alert('A quantidade de caracteres para Resumo deve ser menor que 700!');
+                setSnack('A quantidade de caracteres para Resumo deve ser menor que 700!');
+                setType('info');
+                handleClick();
                 setResumo(resumo.substring(-1, 700));
             }
         }
         if (name === 'historico'){
             if (linhas.length > 14){
-                alert('Máximo de linhas de historico atingido!');
+                setSnack('Máximo de linhas de historico atingido!');
+                setType('info');
+                handleClick();
                 e.preventDefault();
             }
             if (dados.length > 1000){
-                alert('A quantidade de caracteres para Historico deve ser menor que 1000!');
+                setSnack('A quantidade de caracteres para Historico deve ser menor que 1000!');
+                setType('info');
+                handleClick();
                 setHistorico(historico.substring(-1, 1000));
             }
         }
@@ -85,7 +116,9 @@ export default function StepTwo() {
             const campos = [ resumo, historico ];
             campos.forEach((campos)=>{
                 if (campos.isInvalid){
-                    alert(campos.menssagem)
+                    setSnack(campos.menssagem)
+                    setType('error');
+                    handleClick();
                 }
             })
         }
@@ -149,6 +182,13 @@ export default function StepTwo() {
                     </form>
                     </div>
                 </Grid>
+            {/*SNACKBAR*/}
+            <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={type}>
+                    {snack}
+                </Alert>
+            </Snackbar>
+            {/*SNACKBAR*/}
         </div>
     );
 }

@@ -11,8 +11,6 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { useState } from 'react';
 import Validacao from "./Validator";
-
-
 const useStyles = makeStyles((theme) => ({
     margin: {
         margin: theme.spacing(1),
@@ -106,6 +104,7 @@ export default function StepOne() {
                 setSnack('Foto enviada com sucesso!');
                 setkey(true);
                 handleClick();
+
             }
         }
     }
@@ -221,10 +220,12 @@ export default function StepOne() {
                             onChange={e => setEstado(e.target.value)}
                         >
                             <MenuItem value="GO">GO</MenuItem>
+                            <MenuItem value="TO">TO</MenuItem>
                             <MenuItem value="SP">SP</MenuItem>
                             <MenuItem value="DF">DF</MenuItem>
                             <MenuItem value="MG">MG</MenuItem>
                             <MenuItem value="RJ">RJ</MenuItem>
+                            <MenuItem value="PA">PA</MenuItem>
                         </Select>
                     </div>
 
@@ -261,9 +262,10 @@ export default function StepOne() {
 
             </form>
             </Grid>
+            <Snackbar/>
 
             {/*SNACKBAR*/}
-            <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+            <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity={KeySnack()}>
                     {snack}
                 </Alert>

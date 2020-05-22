@@ -7,6 +7,8 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { useState } from 'react';
 import {Link} from "react-router-dom";
+import MuiAlert from "@material-ui/lab/Alert";
+import Snackbar from "@material-ui/core/Snackbar";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +36,26 @@ export default function StepThree() {
         window.location.pathname = '/curriculo2';
     }
 
+    //SNACKBAR
+    function Alert(props) {
+        return <MuiAlert elevation={6} variant="filled" {...props} />;
+    }
+    const [open, setOpen] = React.useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
+    //SNACKBAR
+
+    const [snack, setSnack] = useState('');
+    const [type, setType] = useState('');
     const [inf, setInf] = useState(localStorage.getItem('@curriculo-profile/inf') || '');
     const [comp, setComp] = useState(localStorage.getItem('@curriculo-profile/comp') || '');
 
@@ -45,21 +67,29 @@ export default function StepThree() {
 
         if (name === 'inf'){
             if (linhas.length > 5){
-                alert('Máximo de linhas de informações atingido!')
+                setSnack('Máximo de linhas de informações atingido!')
+                setType('info');
+                handleClick();
                 e.preventDefault();
             }
             if (dados.length > 350){
-                alert('A quantidade de caracteres para Informações Pessoais deve ser menor que 350!');
+                setSnack('A quantidade de caracteres para Informações Pessoais deve ser menor que 350!');
+                setType('info');
+                handleClick();
                 setInf(inf.substring(-1, 350));
             }
         }
         if (name === 'comp'){
             if (linhas.length > 14){
-                alert('Máximo de linhas de competencia atingido!')
+                setSnack('Máximo de linhas de competencia atingido!')
+                setType('info');
+                handleClick();
                 e.preventDefault();
             }
             if (dados.length > 1000){
-                alert('A quantidade de caracteres para Competências deve ser menor que 1000!');
+                setSnack('A quantidade de caracteres para Competências deve ser menor que 1000!');
+                setType('info');
+                handleClick();
                 setComp(comp.substring(-1, 1000));
             }
         }
@@ -88,7 +118,9 @@ export default function StepThree() {
             const campos = [ inf, comp ];
             campos.forEach((campos)=>{
                 if (campos.isInvalid){
-                    alert(campos.menssagem)
+                    setSnack(campos.menssagem)
+                    setType('error');
+                    handleClick();
                 }
             })
         }
@@ -158,8 +190,15 @@ export default function StepThree() {
                     </div>
             </form>
                 </div>
-
             </Grid>
+
+            {/*SNACKBAR*/}
+            <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={type}>
+                    {snack}
+                </Alert>
+            </Snackbar>
+            {/*SNACKBAR*/}
         </div>
     );
 }
