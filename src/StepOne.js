@@ -69,10 +69,13 @@ export default function StepOne() {
     const [celular, setCelular] = useState(localStorage.getItem('@curriculo-profile/celular') || '');
     const [email, setEmail] = useState(localStorage.getItem('@curriculo-profile/email') || '');
 
-    function LimparDados() {
-        localStorage.clear();
-        window.location.reload();
-    }
+            function LimparDados() {
+            setSnack('Dados limpados com sucesso!');
+            setkey(true);
+            handleClick();
+            setTimeout(()=>{localStorage.clear();
+                window.location.reload();},1500);
+            }
 
     function KeySnack() {
             if (keysnack){
