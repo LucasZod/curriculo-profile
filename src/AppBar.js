@@ -4,6 +4,14 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import {Link} from "react-router-dom";
+import {Button} from "@material-ui/core";
+import Drawer from "@material-ui/core/Drawer";
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import clsx from 'clsx';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import ContactsOutlinedIcon from '@material-ui/icons/ContactsOutlined';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -20,22 +28,97 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: "none",
         color: "white",
     },
+    list: {
+        width: 250,
+    },
+    fullList: {
+        width: 'auto',
+    },
+    linktwo: {
+        textDecoration: 'none',
+        color: 'black',
+        marginLeft: 13,
+    },
+    tamojunto: {
+        color: "white",
+        fontSize: 15,
+        fontFamily: "sans-serif",
+
+    },
+    curriculo: {
+        textDecoration: "none",
+        color: "white",
+    }
 
 }));
 
 export default function Header() {
+
+    const [state, setState] = React.useState({
+        top: false,
+        left: false,
+        bottom: false,
+        right: false,
+    });
+
+    const toggleDrawer = (anchor, open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setState({ ...state, [anchor]: open });
+    };
+
+    const list = (anchor) => (
+        <div
+            className={clsx(classes.list, {
+                [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+            })}
+            role="presentation"
+            onClick={toggleDrawer(anchor, false)}
+            onKeyDown={toggleDrawer(anchor, false)}
+        >
+            <List>
+                    <ListItem button key='Informações'>
+                        <ContactsOutlinedIcon fontSize='small'/>
+                        <Link className={classes.linktwo} to='/informacoes'>
+                        <ListItemText primary='Informações' />
+                        </Link>
+                    </ListItem>
+            </List>
+        </div>
+
+    );
+    const Inf = () =>(
+        ['left'].map((anchor) => (
+                <React.Fragment key={anchor}>
+                    <Button className={classes.link} onClick={toggleDrawer(anchor, true)}>{<InfoOutlinedIcon/>}</Button>
+                    <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+                        {list(anchor)}
+                    </Drawer>
+                </React.Fragment>
+            ))
+    );
+
     const classes = useStyles();
     return (
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
+                <Inf/>
                     <Typography variant="h5" className={classes.title}>
-                        <Link className={classes.link} to='/'>
+                        <Link className={classes.curriculo} to='/'>
                         Currículo Profile
                         </Link>
                     </Typography>
+                    <div className={classes.tamojunto}>
+                    #TamoJuntoNessa
+                    </div>
                 </Toolbar>
             </AppBar>
+
         </div>
+
+
     );
 }

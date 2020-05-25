@@ -29,7 +29,7 @@ export default function GCCF(Data) {
     doc.setLineWidth(0.2);
     doc.line(3, 63, 208, 63);
 
-    const res = doc.setFontSize(11)
+    const res = doc.setFontSize(10)
         .splitTextToSize(`${resumo}`, 150);
     doc.text(46, 70, res);
 
@@ -39,7 +39,7 @@ export default function GCCF(Data) {
     doc.setLineWidth(0.2);
     doc.line(3, 113, 208, 113);
 
-    const his = doc.setFontSize(11)
+    const his = doc.setFontSize(10)
         .splitTextToSize(`${historico}`, 150);
     doc.text(46, 120, his);
 
@@ -49,7 +49,7 @@ export default function GCCF(Data) {
     doc.setLineWidth(0.2);
     doc.line(3, 191, 208, 191);
 
-    const info = doc.setFontSize(11)
+    const info = doc.setFontSize(10)
         .splitTextToSize(`${inf}`, 150);
     doc.text(46, 198, info);
 
@@ -59,7 +59,7 @@ export default function GCCF(Data) {
     doc.setLineWidth(0.2);
     doc.line(3, 223, 208, 223);
 
-    const compe = doc.setFontSize(11)
+    const compe = doc.setFontSize(10)
         .splitTextToSize(`${comp}`, 150);
     doc.text(46, 230, compe);
 
