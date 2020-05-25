@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
     link:{
         textDecoration: "none",
     },
+    label: {
+        fontSize: 13,
+    }
 
 }));
 
@@ -212,8 +215,9 @@ export default function StepOne() {
                     </div>
 
                     <div>
-                    <InputLabel  id="demo-simple-select-label">Estado</InputLabel>
+                    <InputLabel  id="demo-simple-select-label" className={classes.label}>Estado</InputLabel>
                         <Select
+                            label="Estado"
                             className={classes.margin}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
