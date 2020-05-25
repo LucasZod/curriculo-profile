@@ -55,6 +55,7 @@ export default function StepOne() {
     };
     //SNACKBAR
     
+    const estad = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
 
     const [snack, setSnack] = useState('');
     const [keysnack, setkey] = useState(true);
@@ -219,13 +220,9 @@ export default function StepOne() {
                             value={estado}
                             onChange={e => setEstado(e.target.value)}
                         >
-                            <MenuItem value="GO">GO</MenuItem>
-                            <MenuItem value="TO">TO</MenuItem>
-                            <MenuItem value="SP">SP</MenuItem>
-                            <MenuItem value="DF">DF</MenuItem>
-                            <MenuItem value="MG">MG</MenuItem>
-                            <MenuItem value="RJ">RJ</MenuItem>
-                            <MenuItem value="PA">PA</MenuItem>
+                            {estad.map((estado)=>(
+                                <MenuItem key={estado} value={estado}>{estado}</MenuItem>
+                            ))}
                         </Select>
                     </div>
 
