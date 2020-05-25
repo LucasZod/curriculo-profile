@@ -23,6 +23,12 @@ export default function Info() {
                     </div>
 
                     <div>
+                        <span>
+                            Por enquanto só está disponível Currículo com Foto, quando houver tempo irei disponibilizar o sem foto.
+                        </span>
+                    </div>
+
+                    <div>
             <span>Obrigado a todos, e <strong>#TamoJuntoNessa</strong></span>
                     </div>
 
