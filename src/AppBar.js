@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: 'none',
         color: 'black',
         marginLeft: 13,
+        marginRight: 13,
     },
     tamojunto: {
         color: "white",
@@ -79,12 +80,12 @@ export default function Header() {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
+                <Link className={classes.linktwo} to='/informacoes'>
                     <ListItem button key='Informações'>
-                        <ContactsOutlinedIcon fontSize='small'/>
-                        <Link className={classes.linktwo} to='/informacoes'>
+                        <ContactsOutlinedIcon className={classes.linktwo} fontSize='small'/>
                         <ListItemText primary='Informações' />
-                        </Link>
                     </ListItem>
+                </Link>
             </List>
         </div>
 
