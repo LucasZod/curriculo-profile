@@ -151,6 +151,7 @@ export default function StepTwo() {
                         value={resumo}
                         onChange={e => setResumo(e.target.value)}
                         onKeyPress={impedirNovaLinha}
+                        onPaste={e => e.preventDefault()}
                     />
                         </div>
 
@@ -166,6 +167,7 @@ export default function StepTwo() {
                         value={historico}
                         onChange={e => setHistorico(e.target.value)}
                         onKeyPress={impedirNovaLinha}
+                        onPaste={e => e.preventDefault()}
                     />
                         </div>
 

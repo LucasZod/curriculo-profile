@@ -156,6 +156,7 @@ export default function StepThree() {
                         multiline
                         rows="6"
                         onKeyPress={impedirNovaLinha}
+                        onPaste={e => e.preventDefault()}
                     />
                         </div>
 
@@ -173,6 +174,7 @@ export default function StepThree() {
                         onChange={e => setComp(e.target.value)}
                         fullWidth
                         onKeyPress={impedirNovaLinha}
+                        onPaste={e => e.preventDefault()}
                     />
                         </div>
 
