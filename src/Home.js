@@ -14,7 +14,11 @@ export default function Home(){
         },
         link:{
             textDecoration: "none",
+
         },
+        botao:{
+            padding: 50,
+        }
     }));
 
     const classes = useStyles();
@@ -23,7 +27,7 @@ export default function Home(){
         <div className={classes.root}>
             <div className={classes.button}>
             <Link className={classes.link} to='/curriculo1'>
-                <Button color="primary" variant="outlined">Curriculo com Foto</Button>
+                <Button className={classes.botao} color="primary" variant="outlined">Curriculo com Foto</Button>
             </Link>
             </div>
 

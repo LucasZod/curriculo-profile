@@ -96,7 +96,6 @@ export default function StepOne() {
 
     const filesSelectedHandle = event =>{
         setImg(event.target.files[0]);
-        console.log(img)
     }
     
 
