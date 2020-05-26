@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: "none",
     },
     label: {
-        fontSize: 13,
+        fontSize: 14,
     }
 
 }));
@@ -196,17 +196,6 @@ export default function StepOne() {
                     </div>
 
                     <div>
-                    <TextField
-                    id="standard-basic"
-                    label="Cidade"
-                    name="cidade"
-                    className={classes.margin}
-                    value={cidade}
-                    onChange={e => setCidade(e.target.value)}
-                    />
-                    </div>
-
-                    <div>
                     <InputLabel  id="demo-simple-select-label" className={classes.label}>Estado</InputLabel>
                         <Select
                             label="Estado"
@@ -220,6 +209,17 @@ export default function StepOne() {
                                 <MenuItem key={estado} value={estado}>{estado}</MenuItem>
                             ))}
                         </Select>
+                    </div>
+
+                    <div>
+                        <TextField
+                            id="standard-basic"
+                            label="Cidade"
+                            name="cidade"
+                            className={classes.margin}
+                            value={cidade}
+                            onChange={e => setCidade(e.target.value)}
+                        />
                     </div>
 
                     <div>
