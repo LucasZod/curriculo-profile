@@ -5,7 +5,7 @@ const validacoesKeys = [
         campo: 'imgData',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'É preciso ENVIAR a Foto'
+        mensagem: 'É preciso Carregar sua foto a Foto'
     },
     {
         campo: 'nome',

@@ -62,7 +62,6 @@ export default function StepOne() {
 
     const [snack, setSnack] = useState('');
     const [keysnack, setkey] = useState(true);
-    const [img, setImg] = useState('');
     const [imgData, setImgData] = useState(localStorage.getItem('@curriculo-profile/imgdata') || '');
     const [nome, setNome] = useState(localStorage.getItem('@curriculo-profile/nome') || '');
     const [end, setEnd] = useState(localStorage.getItem('@curriculo-profile/end') || '');
@@ -94,31 +93,19 @@ export default function StepOne() {
             }
         }
 
-    const filesSelectedHandle = event =>{
-        setImg(event.target.files[0]);
-    }
-    
-
-    const fileUploadHandler = async event =>{
-        event.preventDefault();
-        if(!img)
-        {
-            setSnack("Você precisa CARREGAR uma foto");
-            setkey(false);
+    const filesSelectedHandle = async event => {
+        var file = event.target.files[0];
+        const reader = new FileReader();
+        await reader.readAsDataURL(file);
+        reader.onload = () => {
+            setImgData(reader.result);
+            setSnack('Foto enviada com sucesso!');
+            setkey(true);
             handleClick();
-            return;
-        }else {
-            const reader = new FileReader();
-            await reader.readAsDataURL(img);
-            reader.onload = () => {
-                setImgData(reader.result);
-                setSnack('Foto enviada com sucesso!');
-                setkey(true);
-                handleClick();
-
-            }
         }
     }
+
+
 
 
     const DadosValidator = {
@@ -185,7 +172,6 @@ export default function StepOne() {
                             Carregar Sua Foto
                         </Button>
                     </label>
-                <Button variant='outlined' onClick={fileUploadHandler}>Enviar Foto</Button>
                 </div>
 
                     <div>
