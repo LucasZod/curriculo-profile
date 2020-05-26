@@ -99,12 +99,11 @@ export default function StepOne() {
         await reader.readAsDataURL(file);
         reader.onload = () => {
             setImgData(reader.result);
-            setSnack('Foto enviada com sucesso!');
+            setSnack('Foto CARREGADA com sucesso!');
             setkey(true);
             handleClick();
         }
     }
-
 
 
 
