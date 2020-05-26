@@ -78,7 +78,7 @@ export default function StepOne() {
     }
 
             function LimparDados() {
-            setSnack('Dados limpados com sucesso!');
+            setSnack('Dados LIMPADOS com sucesso!');
             setkey(true);
             handleClick();
             setTimeout(()=>{localStorage.clear();

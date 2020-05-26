@@ -5,68 +5,67 @@ const validacoesKeys = [
         campo: 'imgData',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'É preciso Carregar sua foto a Foto'
+        mensagem: 'É preciso CARREGAR sua foto a Foto!'
     },
     {
         campo: 'nome',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com um nome'
+        mensagem: 'Entre com um nome!'
     },
     {
         campo: 'end',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com um Endereço'
+        mensagem: 'Entre com um Endereço!'
     },
     {
         campo: 'cidade',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com uma Cidade'
+        mensagem: 'Entre com uma Cidade!'
     },
     {
         campo: 'estado',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com um Estado'
+        mensagem: 'Entre com um Estado!'
     },
     {
         campo: 'celular',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com um Celular'
+        mensagem: 'Entre com um Celular!'
     },
     {
         campo: 'email',
         metodo: 'isEmail',
         validoQuando: true,
-        mensagem: 'Entre com um E-mail valido'
+        mensagem: 'Entre com um E-mail válido!'
     },
     {
         campo: 'resumo',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com um Resumo'
+        mensagem: 'Entre com um Resumo!'
     },
     {
         campo: 'historico',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com um Historico'
+        mensagem: 'Entre com um Histórico!'
     },
     {
         campo: 'inf',
         metodo: 'isEmpty',
-        char: 300,
         validoQuando: false,
-        mensagem: 'Entre com uma Informação'
+        mensagem: 'Entre com uma Informação!'
     },
     {
         campo: 'comp',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com uma Competencia'
+        mensagem: 'Entre com uma Competencia!'
     },
 ]
 
