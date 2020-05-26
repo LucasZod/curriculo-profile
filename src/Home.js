@@ -27,11 +27,6 @@ export default function Home(){
             </Link>
             </div>
 
-            {/*<div className={classes.button}>*/}
-            {/*<Link className={classes.link} to='/'>*/}
-            {/*<Button color="primary" variant="outlined">Curriculo sem Foto</Button>*/}
-            {/*</Link>*/}
-            {/*</div>*/}
         </div>
     );
 }

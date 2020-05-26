@@ -62,7 +62,7 @@ export default function StepOne() {
 
     const [snack, setSnack] = useState('');
     const [keysnack, setkey] = useState(true);
-    const [img, setImg] = useState();
+    const [img, setImg] = useState('');
     const [imgData, setImgData] = useState(localStorage.getItem('@curriculo-profile/imgdata') || '');
     const [nome, setNome] = useState(localStorage.getItem('@curriculo-profile/nome') || '');
     const [end, setEnd] = useState(localStorage.getItem('@curriculo-profile/end') || '');
@@ -70,6 +70,13 @@ export default function StepOne() {
     const [estado, setEstado] = useState(localStorage.getItem('@curriculo-profile/estado') || '');
     const [celular, setCelular] = useState(localStorage.getItem('@curriculo-profile/celular') || '');
     const [email, setEmail] = useState(localStorage.getItem('@curriculo-profile/email') || '');
+    
+    function ValidaCel(e) {
+        let valorCel = e.target.value;
+        if (valorCel.length > 15){
+            e.preventDefault();
+        }
+    }
 
             function LimparDados() {
             setSnack('Dados limpados com sucesso!');
@@ -87,8 +94,9 @@ export default function StepOne() {
             }
         }
 
-    const filesSelectedHandle = async event =>{
-        await setImg(event.target.files[0]);
+    const filesSelectedHandle = event =>{
+        setImg(event.target.files[0]);
+        console.log(img)
     }
     
 
@@ -239,6 +247,7 @@ export default function StepOne() {
                     className={classes.margin}
                     value={celular}
                     onChange={e => setCelular(e.target.value)}
+                    onKeyPress={ValidaCel}
                     />
                     </div>
 
