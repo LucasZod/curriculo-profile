@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function StepTwo() {
 
-    const page = localStorage.getItem('@curriculo-profile/imgdata');
+    const page = localStorage.getItem('@curriculo-profile/nome');
     if (!page){
         window.location.pathname = '/curriculo1';
     }

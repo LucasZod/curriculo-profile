@@ -7,7 +7,9 @@ export default function GCCF(Data) {
 
     const doc = new jsPDF();
 
-    doc.addImage(imgData, 'JPEG', 3, 10, 37, 40);
+    if (imgData){
+        doc.addImage(imgData, 'JPEG', 3, 10, 37, 40);
+    }
 
     doc.setFontSize(20);
     doc.text(45, 17, `${nome}`);

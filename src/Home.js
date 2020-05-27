@@ -27,7 +27,7 @@ export default function Home(){
         <div className={classes.root}>
             <div className={classes.button}>
             <Link className={classes.link} to='/curriculo1'>
-                <Button className={classes.botao} color="primary" variant="outlined">Curriculo com Foto</Button>
+                <Button className={classes.botao} color="primary" variant="outlined">Gerador de Currículo</Button>
             </Link>
             </div>
 

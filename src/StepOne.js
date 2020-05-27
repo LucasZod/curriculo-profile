@@ -60,6 +60,7 @@ export default function StepOne() {
     
     const estad = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
 
+    const [button, setButton] = useState(false);
     const [snack, setSnack] = useState('');
     const [keysnack, setkey] = useState(true);
     const [imgData, setImgData] = useState(localStorage.getItem('@curriculo-profile/imgdata') || '');
@@ -111,10 +112,59 @@ export default function StepOne() {
         imgData, nome, end, cidade, estado, celular, email
     };
 
+    const ButtonFoto = () =>{
+        if (button){
+            setButton(false);
+        }else{
+            setButton(true);
+        }
+    }
 
-    const addStorage1 = () => {
+    const ShowButton = () =>{
+        return(
+            <div>
+                <input
+                    type="file"
+                    className={classes.input}
+                    id='contained-button-file'
+                    onChange={filesSelectedHandle}
+                />
+                <label htmlFor="contained-button-file">
+                    <Button className={classes.button} variant="contained" color="primary" component="span">
+                        Carregar Sua Foto
+                    </Button>
+                </label>
+            </div>
+        );
+    }
 
-        const props = ['imgData', 'nome', 'end', 'cidade', 'estado', 'celular', 'email'];
+    const ButtonHide = () =>{
+        return(
+            ""
+        );
+    }
+
+    let ButtonShow;
+    let labelButton;
+
+    if (button){
+        ButtonShow = ShowButton;
+        labelButton = 'Currículo sem Foto';
+    }else{
+        ButtonShow = ButtonHide;
+        labelButton = 'Currículo com foto';
+
+    }
+
+    const addStorage1 = (e) => {
+
+        let props;
+
+        if (button){
+            props = [ 'imgData', 'nome', 'end', 'cidade', 'estado', 'celular', 'email'];
+        }else
+            props = [ 'nome', 'end', 'cidade', 'estado', 'celular', 'email'];
+
 
         const validaTudo = Validacao(DadosValidator, props);
 
@@ -148,6 +198,7 @@ export default function StepOne() {
 
     const classes = useStyles();
 
+
     return(
         <div>
             <Grid
@@ -159,19 +210,8 @@ export default function StepOne() {
             >
 
             <form noValidate autoComplete="off">
-                <div>
-                <input
-                    type="file"
-                    className={classes.input}
-                    id='contained-button-file'
-                    onChange={filesSelectedHandle}
-                />
-                    <label htmlFor="contained-button-file">
-                        <Button className={classes.button} variant="contained" color="primary" component="span">
-                            Carregar Sua Foto
-                        </Button>
-                    </label>
-                </div>
+                    <Button variant="outlined" onClick={ButtonFoto}>{labelButton}</Button>
+                    <ButtonShow/>
 
                     <div>
                     <TextField
