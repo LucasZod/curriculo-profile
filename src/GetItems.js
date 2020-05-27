@@ -2,6 +2,7 @@ import GCCF from "./GCCF";
 
 export default async function Get() {
 
+
     const imgData = localStorage.getItem('@curriculo-profile/imgdata');
     const nome = localStorage.getItem('@curriculo-profile/nome');
     const end = localStorage.getItem('@curriculo-profile/end');

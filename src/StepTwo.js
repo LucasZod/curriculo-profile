@@ -65,7 +65,7 @@ export default function StepTwo() {
         var linhas = dados.split('\n');
 
         if (name === 'resumo'){
-            if (linhas.length > 14){
+            if (linhas.length > 10){
                 setSnack('Máximo de linhas de Resumo atingido!');
                 setType('info');
                 handleClick();
@@ -139,7 +139,7 @@ export default function StepTwo() {
 
                     <div>
 
-                        <label className={classes.label}>Linhas Restantes: {15 - resumo.split('\n').length} </label>
+                        <label className={classes.label}>Linhas Restantes: {11 - resumo.split('\n').length} </label>
                         <div>
                     <TextField
                         name="resumo"

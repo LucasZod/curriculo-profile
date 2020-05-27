@@ -71,7 +71,6 @@ const validacoesKeys = [
 
 export default function Validacao(data, props) {
 
-
     const result = validacoesKeys.filter((valid)=>{
         return props.includes(valid.campo)})
 
@@ -91,14 +90,11 @@ export default function Validacao(data, props) {
     return verification;
 }
 
-
 function valido() {
     const validaKey = {};
 
     validacoesKeys.map((dados) =>{
       return validaKey[dados.campo] = { IsInvalid: false, menssagem:'' }
     });
-
     return {IsValid: true, ...validaKey}
-
 }
