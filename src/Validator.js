@@ -5,67 +5,67 @@ const validacoesKeys = [
         campo: 'imgData',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'É preciso CARREGAR sua foto a Foto!'
+        mensagem: 'É preciso CARREGAR sua Foto!'
     },
     {
         campo: 'nome',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com um nome!'
+        mensagem: 'Entre com seu nome!'
     },
     {
         campo: 'end',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com um Endereço!'
+        mensagem: 'Entre com seu Endereço!'
     },
     {
         campo: 'cidade',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com uma Cidade!'
+        mensagem: 'Entre com sua Cidade!'
     },
     {
         campo: 'estado',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com um Estado!'
+        mensagem: 'Entre com seu Estado!'
     },
     {
         campo: 'celular',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com um Celular!'
+        mensagem: 'Entre com seu numero de Celular!'
     },
     {
         campo: 'email',
         metodo: 'isEmail',
         validoQuando: true,
-        mensagem: 'Entre com um E-mail válido!'
+        mensagem: 'Entre com seu E-Mail válido!'
     },
     {
         campo: 'resumo',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com um Resumo!'
+        mensagem: 'Entre com seu Resumo Profissional!'
     },
     {
         campo: 'historico',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com um Histórico!'
+        mensagem: 'Entre com seu Histórico Profissional!'
     },
     {
         campo: 'inf',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com uma Informação!'
+        mensagem: 'Entre com suas Informações Pessoais!'
     },
     {
         campo: 'comp',
         metodo: 'isEmpty',
         validoQuando: false,
-        mensagem: 'Entre com uma Competencia!'
+        mensagem: 'Entre com sua Competencia Profissional!'
     },
 ]
 

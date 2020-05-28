@@ -30,7 +30,7 @@ export default function Home(){
                 <Button className={classes.botao} color="primary" variant="outlined">Gerador de Currículo</Button>
             </Link>
             </div>
-
+ 
         </div>
     );
 }

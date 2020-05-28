@@ -54,8 +54,9 @@ export default function StepTwo() {
 
     const [snack, setSnack] = useState('');
     const [type, setType] = useState('');
-    const [resumo, setResumo] = useState(localStorage.getItem('@curriculo-profile/resumo') || '');
+    const [resumo, setResumo] = useState(localStorage.getItem('@curriculo-profile/resumo') || []);
     const [historico, setHistorico] = useState(localStorage.getItem('@curriculo-profile/historico') || '');
+
 
     
     function impedirNovaLinha(e) {
@@ -125,7 +126,6 @@ export default function StepTwo() {
     }
 
     const classes = useStyles();
-
     return(
         <div>
                 <Grid className="Informações Profissionais"
@@ -141,34 +141,35 @@ export default function StepTwo() {
 
                         <label className={classes.label}>Linhas Restantes: {11 - resumo.split('\n').length} </label>
                         <div>
-                    <TextField
-                        name="resumo"
-                        label="Resumo Profissional"
-                        id="standard-multiline-static"
-                        multiline
-                        rows="9"
-                        className={classes.margin}
-                        value={resumo}
-                        onChange={e => setResumo(e.target.value)}
-                        onKeyPress={impedirNovaLinha}
-                        onPaste={e => e.preventDefault()}
-                    />
+                            <TextField
+                                name="resumo"
+                                label="Resumo Profissional"
+                                id="standard-multiline-static"
+                                multiline
+                                rows="9"
+                                className={classes.margin}
+                                value={resumo}
+                                onChange={e => setResumo(e.target.value)}
+                                onKeyPress={impedirNovaLinha}
+                                onPaste={e => e.preventDefault()}
+                            />
+
                         </div>
 
                         <label className={classes.label}>Linhas Restantes: {15 - historico.split('\n').length} </label>
                         <div>
-                    <TextField
-                        name="historico"
-                        label="Histórico Profissional"
-                        id="standard-multiline-static"
-                        multiline
-                        rows="9"
-                        className={classes.margin}
-                        value={historico}
-                        onChange={e => setHistorico(e.target.value)}
-                        onKeyPress={impedirNovaLinha}
-                        onPaste={e => e.preventDefault()}
-                    />
+                            <TextField
+                                name="historico"
+                                label="Histórico Profissional"
+                                id="standard-multiline-static"
+                                multiline
+                                rows="9"
+                                className={classes.margin}
+                                value={historico}
+                                onChange={e => setHistorico(e.target.value)}
+                                onKeyPress={impedirNovaLinha}
+                                onPaste={e => e.preventDefault()}
+                            />
                         </div>
 
                     </div>
