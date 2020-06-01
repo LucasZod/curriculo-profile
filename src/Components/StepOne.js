@@ -10,7 +10,7 @@ import Select from '@material-ui/core/Select';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { useState } from 'react';
-import Validacao from "./Validator";
+import Validacao from "../Utils/Validator";
 const useStyles = makeStyles((theme) => ({
     margin: {
         margin: theme.spacing(1),

@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { useState } from 'react';
-import Validacao from "./Validator";
+import Validacao from "../Utils/Validator";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 
@@ -54,7 +54,7 @@ export default function StepTwo() {
 
     const [snack, setSnack] = useState('');
     const [type, setType] = useState('');
-    const [resumo, setResumo] = useState(localStorage.getItem('@curriculo-profile/resumo') || []);
+    const [resumo, setResumo] = useState(localStorage.getItem('@curriculo-profile/resumo') || '');
     const [historico, setHistorico] = useState(localStorage.getItem('@curriculo-profile/historico') || '');
 
 

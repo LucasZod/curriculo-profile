@@ -1,6 +1,6 @@
 import React from "react";
-import Get from "./GetItems";
-import Validacao from "./Validator";
+import Get from "../Utils/GetItems";
+import Validacao from "../Utils/Validator";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from "@material-ui/core/Button";
