@@ -9,9 +9,6 @@ export async function CoronaData(country){
     if (country){
         changedCountry = `${url}/countries/${country}`;
     }
-    if (country === 'global'){
-        changedCountry = url;
-    }
 
     try {
         const {data: {confirmed, recovered, deaths, lastUpdate}} = await axios.get(changedCountry);

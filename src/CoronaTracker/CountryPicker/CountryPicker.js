@@ -21,7 +21,7 @@ export function CountryPicker( {handleCountryChange} ) {
         <div><h1>Selecionar País</h1>
             <FormControl className={style.FormControl}>
                 <NativeSelect onChange={e => handleCountryChange(e.target.value)}>
-                    <option value="global">Global</option>
+                    <option value="">Global</option>
                     {countries.map((countri, index)=> <option key={index} value={countri}>{countri}</option>)}
                 </NativeSelect>
             </FormControl>

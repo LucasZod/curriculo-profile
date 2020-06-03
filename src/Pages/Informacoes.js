@@ -19,7 +19,7 @@ export default function Info() {
                 </Typography>
                 <Typography>
                     <span>
-                        Com esse App você conseguirá fazer seu currículo de graça, tanto pelo celular ou computador, <strong>não é nessessário fazer cadastro, a ideia é ser bem prático.</strong>
+                        Com esse App você conseguirá fazer seu currículo de graça, tanto pelo celular ou computador, <strong>não é nessessário fazer cadastro, a ideia é ser bem prático. </strong>
             Essa foi uma das formas que achei para ajudar o próximo e fazer minha pequena parte diante dessa insanidade que cada um está passando.</span>
                 </Typography>
 
@@ -39,7 +39,7 @@ export default function Info() {
                 </Typography>
                 <Typography>
                 <span>
-                   <strong>(62) 9 8163-8156  </strong>
+                   <strong>(62) 9 8163-8156   </strong>
                     <WhatsAppIcon/>
                 </span>
                 </Typography>

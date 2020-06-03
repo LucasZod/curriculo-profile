@@ -20,6 +20,7 @@ class AppCorona extends React.Component{
         handleCountryChange = async (country) =>{
         const fetchData = await CoronaData(country);
 
+
             this.setState({data: fetchData, country: country});
         }
 

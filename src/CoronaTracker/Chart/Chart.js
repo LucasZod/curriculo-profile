@@ -36,7 +36,6 @@ export default function Charts({data: {recovered, confirmed, deaths}, country}) 
             />) : null
     );
 
-    console.log(confirmed, deaths, recovered);
 
     const barChart = (
         confirmed
