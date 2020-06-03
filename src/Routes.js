@@ -6,6 +6,7 @@ import StepThree from "./Components/StepThree";
 import Header from "./Pages/AppBar";
 import Info from "./Pages/Informacoes";
 import AddButton from "./DinamicFields";
+import AppCorona from "./CoronaTracker/CoronaTracker";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 export default function Routes(){
@@ -20,6 +21,7 @@ export default function Routes(){
                 <Route path='/curriculo3' component={StepThree}/>
                 <Route path='/informacoes' component={Info}/>
                 <Route path='/testes' component={AddButton}/>
+                <Route path='/coronatracker' component={AppCorona}/>
             </Switch>
         </BrowserRouter>
     );

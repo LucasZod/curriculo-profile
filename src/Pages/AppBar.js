@@ -11,6 +11,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import clsx from 'clsx';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import AddAlertIcon from '@material-ui/icons/AddAlert';
 import ContactsOutlinedIcon from '@material-ui/icons/ContactsOutlined';
 
 const useStyles = makeStyles((theme) => ({
@@ -84,6 +85,12 @@ export default function Header() {
                     <ListItem button key='Informações'>
                         <ContactsOutlinedIcon className={classes.linktwo} fontSize='small'/>
                         <ListItemText primary='Informações' />
+                    </ListItem>
+                </Link>
+                <Link className={classes.linktwo} to='/coronatracker'>
+                    <ListItem button key='Corona Tracker'>
+                        <AddAlertIcon className={classes.linktwo} fontSize='small'/>
+                        <ListItemText primary='Corona Tracker' />
                     </ListItem>
                 </Link>
             </List>

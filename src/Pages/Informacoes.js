@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 
+
 export default function Info() {
 
     return(
