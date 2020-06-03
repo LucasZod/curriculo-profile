@@ -21,7 +21,7 @@ export default function Routes(){
                 <Route path='/curriculo3' component={StepThree}/>
                 <Route path='/informacoes' component={Info}/>
                 <Route path='/testes' component={AddButton}/>
-                <Route path='/coronatracker' component={AppCorona}/>
+                <Route path='/coronac' component={AppCorona}/>
             </Switch>
         </BrowserRouter>
     );
