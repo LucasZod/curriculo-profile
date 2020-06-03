@@ -87,10 +87,10 @@ export default function Header() {
                         <ListItemText primary='Informações' />
                     </ListItem>
                 </Link>
-                <Link className={classes.linktwo} to='/coronatracker'>
+                <Link className={classes.linktwo} to='/coronac'>
                     <ListItem button key='Corona Tracker'>
                         <AddAlertIcon className={classes.linktwo} fontSize='small'/>
-                        <ListItemText primary='Corona Tracker' />
+                        <ListItemText primary='Corona Viewer' />
                     </ListItem>
                 </Link>
             </List>
