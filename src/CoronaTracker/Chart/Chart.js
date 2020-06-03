@@ -43,7 +43,7 @@ export default function Charts({data: {recovered, confirmed, deaths}, country}) 
         ?(
         <Bar
         data={{
-            labels: ['Infected', 'Recovered', 'Deaths'],
+            labels: ['Infectados', 'Recuperados', 'Mortos'],
             datasets: [{
                label: 'People',
                 backgroundColor: [
@@ -51,7 +51,7 @@ export default function Charts({data: {recovered, confirmed, deaths}, country}) 
                     'rgba(0, 255, 0, 0.5)',
                     'rgba(255, 0, 0, 0.5)',
                 ],
-                data: [confirmed.value, deaths.value, recovered.value],
+                data: [confirmed.value, recovered.value, deaths.value],
             }],
 
         }}
