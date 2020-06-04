@@ -8,7 +8,7 @@ export default function GCCF(Data) {
     const doc = new jsPDF();
 
     if (imgData){
-        doc.addImage(imgData, 'JPEG', 3, 10, 37, 40);
+        doc.addImage(imgData, 'JPEG', 3, 8, 37, 40);
     }
 
     doc.setFontSize(20);
